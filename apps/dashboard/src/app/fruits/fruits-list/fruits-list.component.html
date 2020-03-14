@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Fruits</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let fruit of fruits"
+        [routerLink]="[fruit.id]"
+        class="mat-list-option border-bottom"
+      >
+        <h3 mat-line>{{ fruit.type }}</h3>
+        <p mat-line>{{ fruit.name }}</p>
+        <button
+          class="mr-2"
+          mat-mini-fab
+          (click)="selected.emit(fruit); $event.stopImmediatePropagation()"
+        >
+          <mat-icon>launch</mat-icon>
+        </button>
+        <button
+          mat-mini-fab
+          (click)="deleted.emit(fruit); $event.stopImmediatePropagation()"
+        >
+          <mat-icon *ngIf="!readonly">close</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

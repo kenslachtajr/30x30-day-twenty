@@ -15,7 +15,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ngrx-fruits/core-data": ["libs/core-data/src/index.ts"],
+      "@ngrx-fruits/core-state": ["libs/core-state/src/index.ts"],
+      "@ngrx-fruits/material": ["libs/material/src/index.ts"],
+      "@ngrx-fruits/ui-libraries": ["libs/ui-libraries/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

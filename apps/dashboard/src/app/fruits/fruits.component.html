@@ -1,0 +1,18 @@
+<div class="container d-flex mt-3">
+  <div class="col-6">
+    <ngrx-fruits-fruits-list
+      [fruits]="fruits$ | async"
+      (selected)="selectFruit($event)"
+      (deleted)="deleteFruit($event)"
+    >
+    </ngrx-fruits-fruits-list>
+  </div>
+  <div class="col-6">
+    <ngrx-fruits-fruits-details
+      [form]="form"
+      [fruit]="selectedFruit$ | async"
+      (saved)="saveFruit($event)"
+      (cancelled)="resetFruit()"
+    ></ngrx-fruits-fruits-details>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div
+  class="d-flex justify-content-center align-content-center mt-5"
+  *ngIf="fruit$ | async as fruit"
+>
+  <div class="card-wrapper">
+    <mat-card class="col-4">
+      <mat-card-header>
+        <mat-card-title>
+          <h1>{{ originalTitle }}</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h3>Fruit Brand:</h3>
+        <p mat-line>{{ fruit.type }}</p>
+        <h3>Fruit Name:</h3>
+        <p mat-line>{{ fruit.name }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="goBackToFruits()">
+          <mat-icon>reply</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
