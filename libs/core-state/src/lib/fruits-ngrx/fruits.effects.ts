@@ -24,7 +24,7 @@ export class FruitsEffects {
           .all()
           .pipe(
             map((fruits: Fruit[]) =>
-            fruitsActions.fruitsLoaded({ fruit })
+            fruitsActions.fruitsLoaded({ fruits })
             )
           );
       },

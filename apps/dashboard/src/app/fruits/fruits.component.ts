@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class FruitsComponent implements OnInit {
   form: FormGroup;
   selectedFruit$: Observable<Fruit> = this.fruitsFacade.selectedFruit$;
-  Fruits$: Observable<Fruit[]> = this.fruitsFacade.allFruits$;
+  fruits$: Observable<Fruit[]> = this.fruitsFacade.allFruits$;
 
   constructor(
     private fruitsFacade: FruitsFacade,
@@ -26,7 +26,7 @@ export class FruitsComponent implements OnInit {
   }
 
   selectFruit(fruit: Fruit) {
-    this.fruitsFacade.selectFruit(Fruit.id);
+    this.fruitsFacade.selectFruit(fruit.id);
     this.form.patchValue(fruit);
   }
 
@@ -49,7 +49,7 @@ export class FruitsComponent implements OnInit {
   }
 
   saveFruit(fruit: Fruit) {
-    if (Fruit.id) {
+    if (fruit.id) {
       this.updateFruit();
     } else {
       this.createFruit();
@@ -62,16 +62,17 @@ export class FruitsComponent implements OnInit {
   }
 
   deleteFruit(fruit: Fruit) {
-    this.notify.notification(`You have deleted ${Fruit.name}`);
-    this.fruitsFacade.deleteFruit(Fruit);
+    this.notify.notification(`You have deleted ${fruit.name}`);
+    this.fruitsFacade.deleteFruit(fruit);
   }
 
   private initForm() {
     this.form = this.formbuilder.group({
       id: null,
-      type: ['', Validators.compose([Validators.required])],
       name: ['', Validators.compose([Validators.required])],
-      fizzLevel: ''
+      details: ['', Validators.compose([Validators.required])],
+      tasteLevel: '',
+      approved: null
     });
   }
 }

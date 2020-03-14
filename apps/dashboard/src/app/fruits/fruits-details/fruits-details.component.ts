@@ -9,10 +9,9 @@ export class FruitsDetailsComponent {
   currentFruit: Fruit;
   originalTitle;
   @Input() set fruit(value) {
-    if (value) this.originalTitle = value.title;
+    if (value) this.originalTitle = value.name;
     this.currentFruit = Object.assign({}, value);
   }
-
   @Input() form;
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
