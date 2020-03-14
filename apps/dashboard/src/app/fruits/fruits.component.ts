@@ -39,7 +39,7 @@ export class FruitsComponent implements OnInit {
   }
 
   createFruit() {
-    this.notify.notification(`You have created ${this.form.value.title}`);
+    this.notify.notification(`You have created ${this.form.value.name}`);
     this.fruitsFacade.createFruit(this.form.value);
   }
 

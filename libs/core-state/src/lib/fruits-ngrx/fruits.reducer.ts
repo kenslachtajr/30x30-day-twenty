@@ -16,8 +16,7 @@ export interface FruitsPartialState {
 }
 
 export const fruitsAdapter: EntityAdapter<
-  Fruit
-> = createEntityAdapter<Fruit>();
+Fruit> = createEntityAdapter<Fruit>();
 
 export const initialState: FruitsState = fruitsAdapter.getInitialState(
   {
@@ -34,13 +33,13 @@ const fruitsReducer = createReducer(
       Object.assign({}, state, { selectedFruitId })
   ),
   on(fruitsActions.fruitsLoaded, (state, { fruits }) =>
-    fruitsAdapter.setAll(fruits, { ...state, isLoading: false })
+  fruitsAdapter.setAll(fruits, { ...state, isLoading: false })
   ),
   on(fruitsActions.fruitCreated, (state, { fruit }) =>
-    fruitsAdapter.addOne(fruit, { ...state, isLoading: false })
+  fruitsAdapter.addOne(fruit, { ...state, isLoading: false })
   ),
   on(fruitsActions.fruitUpdated, (state, { fruit }) =>
-    fruitsAdapter.upsertOne(fruit, { ...state, isLoading: false })
+  fruitsAdapter.upsertOne(fruit, { ...state, isLoading: false })
   ),
   on(fruitsActions.fruitDeleted, (state, { fruit }) =>
   fruitsAdapter.removeOne(fruit.id, {

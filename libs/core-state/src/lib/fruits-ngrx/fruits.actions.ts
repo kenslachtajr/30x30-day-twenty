@@ -3,15 +3,13 @@ import { Fruit } from '@ngrx-fruits/core-data';
 
 export const fruitSelected = createAction(
   '[FRUIT] Fruit Selected',
-  props<{selectedFruitId: string | number}>()
+  props<{ selectedFruitId: string | number }>()
 );
 
-export const loadFruits = createAction(
-  '[FRUIT] Load Fruits',
-);
+export const loadFruits = createAction('[FRUIT] Load Fruits');
 
 export const fruitsLoaded = createAction(
-  '[FRUIT] Fruits Loaded',
+  '[FRUIT] Fruit Loaded',
   props<{ fruits: Fruit[] }>()
 );
 

@@ -11,15 +11,9 @@ import { Fruit } from '@ngrx-fruits/core-data';
   providedIn: 'root'
 })
 export class FruitsFacade {
-  allFruits$ = this.store.pipe(
-    select(fruitsSelectors.selectAllFruits)
-  );
-  selectedFruit$ = this.store.pipe(
-    select(fruitsSelectors.selectFruit)
-  );
-  fruitsLoading$ = this.store.pipe(
-    select(fruitsSelectors.selectFruitsLoading)
-  );
+  allFruits$ = this.store.pipe(select(fruitsSelectors.selectAllFruits));
+  selectedFruit$ = this.store.pipe(select(fruitsSelectors.selectFruit));
+  fruitsLoading$ = this.store.pipe(select(fruitsSelectors.selectFruitsLoading));
   mutations$ = this.actions$.pipe(
     filter(
       (action: Action) =>
@@ -35,9 +29,7 @@ export class FruitsFacade {
   ) {}
 
   selectFruit(selectedFruitId: string | number) {
-    this.dispatch(
-      fruitsActions.fruitSelected({ selectedFruitId })
-    );
+    this.dispatch(fruitsActions.fruitSelected({ selectedFruitId }));
   }
 
   loadFruits() {
